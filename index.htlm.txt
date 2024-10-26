@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egyszerû Webapp</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    #note-list { list-style: none; padding: 0; }
+    li { padding: 5px; margin: 5px 0; background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Jegyzetek</h1>
+  <input type="text" id="note-input" placeholder="Írj be egy jegyzetet">
+  <button onclick="addNote()">Hozzáadás</button>
+  <ul id="note-list"></ul>
+
+  <script>
+    function addNote() {
+      const noteInput = document.getElementById('note-input');
+      const noteList = document.getElementById('note-list');
+      const noteText = noteInput.value.trim();
+      if (noteText) {
+        const listItem = document.createElement('li');
+        listItem.textContent = noteText;
+        noteList.appendChild(listItem);
+        noteInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
